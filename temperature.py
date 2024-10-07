@@ -27,12 +27,12 @@ filtered_df = filtered_df[(filtered_df['VJ121A2_002_LST_Day_1KM'] != 0) &
 
 plt.figure(figsize=(12, 6))
 
-plt.plot(filtered_df['Date'], filtered_df['VJ121A2_002_LST_Day_1KM'], label='Temperatura Diurna (K)', color='orange')
-plt.plot(filtered_df['Date'], filtered_df['VJ121A2_002_LST_Night_1KM'], label='Temperatura Nocturna (K)', color='blue')
+plt.plot(filtered_df['Date'], filtered_df['VJ121A2_002_LST_Day_1KM'], label='Daytime Temperature (K)', color='orange')
+plt.plot(filtered_df['Date'], filtered_df['VJ121A2_002_LST_Night_1KM'], label='Nighttime Temperature (K)', color='blue')
 
-plt.title('Tendencia Temporal de Temperaturas en Arequipa')
-plt.xlabel('Fecha')
-plt.ylabel('Temperatura (K)')
+plt.title('Temporal Trend of Temperatures in Arequipa')
+plt.xlabel('Date')
+plt.ylabel('Temperature (K)')
 plt.legend()
 plt.xticks(rotation=45)
 plt.grid()
@@ -40,8 +40,6 @@ plt.grid()
 plt.tight_layout()
 plt.show()
 
-
-# Preparar los datos para XGBoost
 data = filtered_df.rename(columns={'Date': 'ds', 'VJ121A2_002_LST_Day_1KM': 'y'})
 data['month'] = data['ds'].dt.month
 data['day'] = data['ds'].dt.day
@@ -76,7 +74,7 @@ future['xgboost_prediction'] = xgb_model.predict(future[['month', 'day', 'year']
 forecast = prophet_model.predict(future)
 
 fig = prophet_model.plot(forecast)
-plt.title('Predicción de Temperatura Diurna con Regresor Externo XGBoost')
-plt.xlabel('Fecha')
-plt.ylabel('Temperatura (K)')
+plt.title('Daytime Temperature Prediction with External XGBoost Regressor')
+plt.xlabel('Date')
+plt.ylabel('Temperature (K)')
 plt.show()

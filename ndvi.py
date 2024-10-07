@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 from prophet import Prophet
 from sklearn.model_selection import train_test_split
 
-# Cargar el dataset
+# Load the dataset
 data = pd.read_csv('ndvi2.csv')
 
-# Filtrar las columnas necesarias
+# Filter the necessary columns
 filtered_columns = [
     'Category',
     'ID',
@@ -31,9 +31,9 @@ plt.figure(figsize=(12, 6))
 plt.plot(filtered_df['Date'], filtered_df['VNP13A3_001__1_km_monthly_NDVI'], label='NDVI', color='green')
 plt.plot(filtered_df['Date'], filtered_df['VNP13A3_001__1_km_monthly_EVI'], label='EVI', color='blue')
 
-plt.title('Tendencia Temporal de NDVI y EVI')
-plt.xlabel('Fecha')
-plt.ylabel('Valores de NDVI y EVI')
+plt.title('Temporal Trend of NDVI and EVI')
+plt.xlabel('Date')
+plt.ylabel('NDVI and EVI Values')
 plt.legend()
 plt.xticks(rotation=45)
 plt.grid()
@@ -73,7 +73,7 @@ future['xgboost_prediction'] = xgb_model.predict(future[['month', 'day', 'year']
 forecast = prophet_model.predict(future)
 
 fig = prophet_model.plot(forecast)
-plt.title('Predicción de NDVI con Regresor Externo XGBoost')
-plt.xlabel('Fecha')
+plt.title('NDVI Prediction with External XGBoost Regressor')
+plt.xlabel('Date')
 plt.ylabel('NDVI')
 plt.show()
