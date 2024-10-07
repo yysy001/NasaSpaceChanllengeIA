@@ -34,3 +34,14 @@ For more information about **AppEEARS**, visit the [official AppEEARS site](http
 - **VJ121A2_002_LST_Night_1KM**: Nighttime land surface temperature at 1 km resolution.
 - **VNP13A3_001__1_km_monthly_NDVI**: Monthly Normalized Difference Vegetation Index at 1 km resolution.
 - **VNP13A3_001__1_km_monthly_EVI**: Monthly Enhanced Vegetation Index at 1 km resolution.
+
+## Contribution to Chakra360
+
+This code and the associated analysis and predictions aim to contribute to the objective of **Chakra360**, providing accurate predictions based on open data offered by **AppEEARS** to farmers in need of our services.
+
+
+## Future Improvements
+
+Future enhancements are planned to incorporate external regressor data to improve the predictive capabilities of the model. Additionally, predictions will be made in real-time using data collected from the **Parrot Bebop 2** drone.
+
+
